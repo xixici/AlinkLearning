@@ -16,15 +16,15 @@
 
 其次，本项目也包含了必要的Pom, Jar, 数据集以及官方示例。
 
-- [ ] Pom
+- [x] Pom
 	- pom.xml
-- [ ] Jar
+- [x] Jar
 	- alink_core-0.1-SNAPSHOT.jar
-- [ ] 官方数据集
+- [x] 官方数据集
 	- adult_train & adult_test
 	- iris
 	- movielens_rating
-- [ ] 官方jupyter notebook示例
+- [x] 官方jupyter notebook示例
 	- adult.ipynb 
 	- ftrl_demo.ipynb
 	- adult.ipynb	
@@ -32,7 +32,7 @@
 	- kmeans.ipynb	
 	- mnist.ipynb	
 	- review_naive_bayes.ipynb
-- [ ] 官方Java示例
+- [x] 官方Java示例
 	- ALSExample.java
 	- GBDTExample.java
 	- KMeansExample.java
