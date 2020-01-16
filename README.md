@@ -1,5 +1,13 @@
 # AlinkLearning
 
+## Alink生态图
+
+<div align=center>
+<img src="/resources/alink.png" height="60%" width="60%">
+</div>
+
+![Alink生态图](/resources/alink.png)
+
 ## 目的
 
 为了学习Alink以及所涉及的Flink知识，本仓库有两大目的，
