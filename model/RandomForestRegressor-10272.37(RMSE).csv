@@ -1,0 +1,5 @@
+-1,"{""schema"":[""model_id BIGINT,model_info VARCHAR""],""param"":[""{\""featureCols\"":\""[\\\""R_D_Spend\\\"",\\\""Administration\\\"",\\\""Marketing_Spend\\\""]\"",\""labelCol\"":\""\\\""Profit\\\""\"",\""predictionCol\"":\""\\\""pred\\\""\""}""],""clazz"":[""com.alibaba.alink.pipeline.regression.GeneralizedLinearRegressionModel""]}"
+0,"0^{""epsilon"":""1.0E-5"",""linkPower"":""1.0"",""fitIntercept"":""true"",""link"":null,""featureCols"":""[\""R_D_Spend\"",\""Administration\"",\""Marketing_Spend\""]"",""regParam"":""0.0"",""labelCol"":""\""Profit\"""",""offsetCol"":null,""family"":""\""gaussian\"""",""variancePower"":""0.0"",""weightCol"":null}"
+0,"3145728^[6.041732165083564E-12,3.3709205113029814E-12,6.356639706568684E-13,9.7851525173734E-4]"
+0,2097152^48860.778691304804
+0,"1048576^[0.7874296925347787,0.0030809633059849877,0.0250645478649801]"

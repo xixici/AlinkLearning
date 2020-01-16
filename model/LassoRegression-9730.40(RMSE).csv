@@ -1,0 +1,3 @@
+-1,"{""schema"":[""model_id BIGINT,model_info VARCHAR,label_value DOUBLE""],""param"":[""{\""featureCols\"":\""[\\\""R_D_Spend\\\"",\\\""Administration\\\"",\\\""Marketing_Spend\\\""]\"",\""lambda\"":\""0.1\"",\""labelCol\"":\""\\\""Profit\\\""\"",\""predictionCol\"":\""\\\""pred\\\""\""}""],""clazz"":[""com.alibaba.alink.pipeline.regression.LassoRegressionModel""]}"
+0,"0^{""hasInterceptItem"":""true"",""modelName"":""\""LASSO\"""",""labelCol"":null,""linearModelType"":""\""LinearReg\""""}^"
+0,"1048576^{""featureColNames"":[""R_D_Spend"",""Administration"",""Marketing_Spend""],""featureColTypes"":null,""coefVector"":{""data"":[52445.042594370876,0.7726437702242143,-0.021649805236738647,0.026566451648027567]},""coefVectors"":null}^"

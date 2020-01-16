@@ -1,0 +1,1 @@
+-1,"{""schema"":[""model_id BIGINT,model_info VARCHAR,label_value DOUBLE""],""param"":[""{\""featureCols\"":\""[\\\""R_D_Spend\\\"",\\\""Administration\\\"",\\\""Marketing_Spend\\\""]\"",\""lambda\"":\""0.1\"",\""labelCol\"":\""\\\""Profit\\\""\"",\""predictionCol\"":\""\\\""pred\\\""\""}""],""clazz"":[""com.alibaba.alink.pipeline.regression.RidgeRegressionModel""]}"
