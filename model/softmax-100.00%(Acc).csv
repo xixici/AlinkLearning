@@ -1,0 +1,6 @@
+-1,"{""schema"":["""",""model_id BIGINT,model_info VARCHAR,label_value VARCHAR""],""param"":[""{\""outputCol\"":\""\\\""vec\\\""\"",\""reservedCols\"":\""[\\\""category\\\""]\"",\""selectedCols\"":\""[\\\""sepal_length\\\"",\\\""sepal_width\\\"",\\\""petal_length\\\"",\\\""petal_width\\\""]\""}"",""{\""vectorCol\"":\""\\\""vec\\\""\"",\""maxIter\"":\""100\"",\""reservedCols\"":\""[\\\""category\\\""]\"",\""labelCol\"":\""\\\""category\\\""\"",\""predictionCol\"":\""\\\""pred_label\\\""\"",\""predictionDetailCol\"":\""\\\""pred_detail\\\""\""}""],""clazz"":[""com.alibaba.alink.pipeline.dataproc.vector.VectorAssembler"",""com.alibaba.alink.pipeline.classification.SoftmaxModel""]}"
+1,2251799812636674^^Iris-virginica
+1,"0^{""hasInterceptItem"":""true"",""vectorCol"":""\""vec\"""",""modelName"":""\""softmax\"""",""labelCol"":null,""linearModelType"":null,""vectorSize"":""4""}^"
+1,"1048576^{""featureColNames"":null,""featureColTypes"":null,""coefVector"":{""data"":[103.0198008868561,-17.39334398741721,22.754087590576408,-11.987226591508202,-25.49376921221942,33.755724220027304,2.3600579482811566,6.064268214413479,-8.589143301817977,-13.963355280404489]},""coefVectors"":null}^"
+1,2251799812636672^^Iris-setosa
+1,2251799812636673^^Iris-versicolor

@@ -1,0 +1,17 @@
+-1,"{""schema"":["""",""table_id BIGINT,t0_meta VARCHAR,t1_ovr_id BIGINT,t1_model_id BIGINT,t1_model_info VARCHAR,t1_label_value DOUBLE,t2_category VARCHAR""],""param"":[""{\""outputCol\"":\""\\\""vec\\\""\"",\""reservedCols\"":\""[\\\""category\\\""]\"",\""selectedCols\"":\""[\\\""sepal_length\\\"",\\\""sepal_width\\\"",\\\""petal_length\\\"",\\\""petal_width\\\""]\""}"",""{\""vectorCol\"":\""\\\""vec\\\""\"",\""positiveLabelValueString\"":\""\\\""1\\\""\"",\""maxIter\"":\""100\"",\""reservedCols\"":\""[\\\""category\\\""]\"",\""labelCol\"":\""\\\""category\\\""\"",\""predictionCol\"":\""\\\""pred_label\\\""\"",\""predictionDetailCol\"":\""\\\""pred_detail\\\""\"",\""numClass\"":\""3\""}""],""clazz"":[""com.alibaba.alink.pipeline.dataproc.vector.VectorAssembler"",""com.alibaba.alink.pipeline.classification.OneVsRestModel""]}"
+1,1^^0^2251799812636673^^0.0^
+1,1^^2^2251799812636673^^0.0^
+1,1^^1^2251799812636673^^0.0^
+1,"0^{""modelColNames"":""[\""model_id\"",\""model_info\"",\""label_value\""]"",""binClsClassName"":""\""com.alibaba.alink.pipeline.classification.LogisticRegression\"""",""modelColTypes"":""[-5,12,8]"",""binClsParams"":""\""{\\\""vectorCol\\\"":\\\""\\\\\\\""vec\\\\\\\""\\\"",\\\""positiveLabelValueString\\\"":\\\""\\\\\\\""1\\\\\\\""\\\"",\\\""maxIter\\\"":\\\""100\\\"",\\\""reservedCols\\\"":\\\""[\\\\\\\""category\\\\\\\""]\\\"",\\\""labelCol\\\"":\\\""\\\\\\\""category\\\\\\\""\\\"",\\\""predictionCol\\\"":\\\""\\\\\\\""pred_label\\\\\\\""\\\"",\\\""predictionDetailCol\\\"":\\\""\\\\\\\""pred_detail\\\\\\\""\\\""}\"""",""labelTypeName"":""\""VARCHAR\"""",""numClasses"":""3"",""labels"":""\""[\\\""Iris-setosa\\\"",\\\""Iris-versicolor\\\"",\\\""Iris-virginica\\\""]\""""}^^^^^"
+1,2^^^^^^Iris-versicolor
+1,"1^^0^0^{""hasInterceptItem"":""true"",""vectorCol"":""\""vec\"""",""modelName"":""\""Logistic Regression\"""",""labelCol"":null,""linearModelType"":""\""LR\"""",""vectorSize"":""4""}^^"
+1,"1^^2^0^{""hasInterceptItem"":""true"",""vectorCol"":""\""vec\"""",""modelName"":""\""Logistic Regression\"""",""labelCol"":null,""linearModelType"":""\""LR\"""",""vectorSize"":""4""}^^"
+1,"1^^1^0^{""hasInterceptItem"":""true"",""vectorCol"":""\""vec\"""",""modelName"":""\""Logistic Regression\"""",""labelCol"":null,""linearModelType"":""\""LR\"""",""vectorSize"":""4""}^^"
+1,2^^^^^^Iris-virginica
+1,"1^^0^1048576^{""featureColNames"":null,""featureColTypes"":null,""coefVector"":{""data"":[-4.047991503959132,-8.978920529634657,30.420754509337137,-7.992760943078951,-17.20182456515059]},""coefVectors"":null}^^"
+1,"1^^2^1048576^{""featureColNames"":null,""featureColTypes"":null,""coefVector"":{""data"":[-13094.90012896352,-332.7436306960337,-1620.2267678483945,2047.0047102159758,5632.7337101499315]},""coefVectors"":null}^^"
+1,"1^^1^1048576^{""featureColNames"":null,""featureColTypes"":null,""coefVector"":{""data"":[7.727532450208061,-0.2674539188890003,-2.823624544973245,1.104546489695017,-2.1289477155319356]},""coefVectors"":null}^^"
+1,2^^^^^^Iris-setosa
+1,1^^0^2251799812636672^^1.0^
+1,1^^2^2251799812636672^^1.0^
+1,1^^1^2251799812636672^^1.0^
