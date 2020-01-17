@@ -30,7 +30,11 @@
     - 决策树回归
     - Lasso回归
     - 岭回归
-- [ ] 聚类算法
+- [x] 聚类算法
+    - 二分K均值聚类
+    - KMeans
+    - 高斯混合模型
+    - LDA
 - [ ] 异常检测
 - [ ] 在线学习
 - [ ] 特征工程
@@ -52,6 +56,7 @@
 - [x] 自定义数据集
 	- Mall_Costumers
 	- 50_startups
+	- lda-test-demo
 - [x] 官方jupyter notebook示例
 	- adult.ipynb 
 	- ftrl_demo.ipynb

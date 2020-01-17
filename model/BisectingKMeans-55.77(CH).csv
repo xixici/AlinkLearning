@@ -1,0 +1,5 @@
+-1,"{""schema"":["""",""model_id BIGINT,model_info VARCHAR""],""param"":[""{\""outputCol\"":\""\\\""vec\\\""\"",\""selectedCols\"":\""[\\\""CustomerID\\\"",\\\""Age\\\"",\\\""Annual_Income\\\"",\\\""Spending_Score\\\""]\""}"",""{\""vectorCol\"":\""\\\""vec\\\""\"",\""k\"":\""2\"",\""predictionCol\"":\""\\\""pred\\\""\""}""],""clazz"":[""com.alibaba.alink.pipeline.dataproc.vector.VectorAssembler"",""com.alibaba.alink.pipeline.clustering.BisectingKMeansModel""]}"
+1,"2097152^{""clusterId"":2,""size"":80,""center"":{""data"":[50.112500000000004,39.975,39.362500000000004,49.325]},""cost"":135853.97499999998}"
+1,"1048576^{""clusterId"":1,""size"":160,""center"":{""data"":[99.775,38.91875,60.21875,50.3125]},""cost"":776279.5625}"
+1,"3145728^{""clusterId"":3,""size"":80,""center"":{""data"":[149.4375,37.862500000000004,81.075,51.300000000000004]},""cost"":175875.52500000037}"
+1,"0^{""vectorCol"":""\""vec\"""",""distanceType"":""\""EUCLIDEAN\"""",""k"":""2"",""vectorSize"":""4""}"

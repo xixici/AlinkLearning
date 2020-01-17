@@ -1,0 +1,4 @@
+-1,"{""schema"":["""",""model_id BIGINT,model_info VARCHAR""],""param"":[""{\""outputCol\"":\""\\\""vec\\\""\"",\""selectedCols\"":\""[\\\""CustomerID\\\"",\\\""Age\\\"",\\\""Annual_Income\\\"",\\\""Spending_Score\\\""]\""}"",""{\""vectorCol\"":\""\\\""vec\\\""\"",\""k\"":\""2\"",\""predictionCol\"":\""\\\""pred\\\""\""}""],""clazz"":[""com.alibaba.alink.pipeline.dataproc.vector.VectorAssembler"",""com.alibaba.alink.pipeline.clustering.KMeansModel""]}"
+1,"0^{""vectorCol"":""\""vec\"""",""latitudeCol"":null,""longitudeCol"":null,""distanceType"":""\""EUCLIDEAN\"""",""k"":""2"",""vectorSize"":""4""}"
+1,"1048576^{""clusterId"":0,""weight"":79.0,""vec"":{""data"":[47.89873417721519,39.151898734177216,38.32911392405063,51.379746835443036]}}"
+1,"2097152^{""clusterId"":1,""weight"":81.0,""vec"":{""data"":[150.679012345679,37.98765432098765,82.38271604938271,49.2716049382716]}}"
