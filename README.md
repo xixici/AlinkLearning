@@ -35,7 +35,13 @@
     - KMeans
     - 高斯混合模型
     - LDA
-- [ ] 异常检测
+- [x] 协同过滤
+    - ALS
+- [x] 异常检测
+    - SOS
+- [x] 关联规则
+    - FP-Growth
+    - PrefixSpan
 - [ ] 在线学习
 - [ ] 特征工程
 - [ ] 模型的选择和调参
@@ -57,6 +63,8 @@
 	- Mall_Costumers
 	- 50_startups
 	- lda-test-demo
+	- FpGrowth-test-demo
+	- PrefixSpan-test-demo
 - [x] 官方jupyter notebook示例
 	- adult.ipynb 
 	- ftrl_demo.ipynb
