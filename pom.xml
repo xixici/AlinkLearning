@@ -299,9 +299,9 @@ under the License.
                     <scope>provided</scope>
                 </dependency>
                 <!--<dependency>-->
-                    <!--<groupId>com.alibaba.alink</groupId>-->
-                    <!--<artifactId>alink_core</artifactId>-->
-                    <!--<version>0.1-SNAPSHOT</version>-->
+                <!--<groupId>com.alibaba.alink</groupId>-->
+                <!--<artifactId>alink_core</artifactId>-->
+                <!--<version>0.1-SNAPSHOT</version>-->
                 <!--</dependency>-->
                 <dependency>
                     <groupId>org.apache.flink</groupId>
@@ -327,6 +327,11 @@ under the License.
                     <groupId>org.apache.flink</groupId>
                     <artifactId>flink-table-planner_${alink.scala.major.version}</artifactId>
                     <version>${flink.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.kafka</groupId>
+                    <artifactId>kafka_2.11</artifactId>
+                    <version>0.10.1.1</version>
                 </dependency>
             </dependencies>
         </profile>
