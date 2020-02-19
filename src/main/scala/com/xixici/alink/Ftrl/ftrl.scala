@@ -3,9 +3,10 @@ package com.xixici.alink.Ftrl
 import com.alibaba.alink.operator.batch.BatchOperator
 import com.alibaba.alink.operator.batch.classification.LogisticRegressionTrainBatchOp
 import com.alibaba.alink.operator.batch.source.CsvSourceBatchOp
+import com.alibaba.alink.operator.stream.StreamOperator
 import com.alibaba.alink.operator.stream.dataproc.SplitStreamOp
 import com.alibaba.alink.operator.stream.onlinelearning.{FtrlPredictStreamOp, FtrlTrainStreamOp}
-import com.alibaba.alink.operator.stream.source.Kafka011SourceStreamOp
+import com.alibaba.alink.operator.stream.source.CsvSourceStreamOp
 import com.alibaba.alink.pipeline.dataproc.StandardScaler
 import com.alibaba.alink.pipeline.feature.FeatureHasher
 import com.alibaba.alink.pipeline.{Pipeline, PipelineModel}
@@ -58,17 +59,26 @@ object ftrl {
     val vecColName = "vec"
     val numHashFeatures = 30000
 
-    val data0 = new Kafka011SourceStreamOp()
-      .setBootstrapServers("127.0.0.1:9092")
-      .setTopic("avazu")
-      .setStartupMode("EARLIEST")
-      .setGroupId("alink")
+    //    val data0 = new Kafka011SourceStreamOp()
+    //      .setBootstrapServers("127.0.0.1:9092")
+    //      .setTopic("avazu")
+    //      .setStartupMode("EARLIEST")
+    //      .setGroupId("alink")
     //    data0.print(1,1000)
     //    StreamOperator.execute()
+
+    // prepare stream train data
+    val wholeDataFile = "data/avazu-ctr-train-8M.csv"
+    val data = new CsvSourceStreamOp()
+      .setFilePath(wholeDataFile)
+      .setSchemaStr(schemaStr)
+      .setIgnoreFirstLine(true)
+
     // split stream to train and eval data
-    val spliter = new SplitStreamOp().setFraction(0.5).linkFrom(data0)
-    val train_stream_data: SplitStreamOp = spliter
-    val test_stream_data = spliter.getSideOutput(0)
+    val spliter = new SplitStreamOp().setFraction(0.5).linkFrom(data)
+    val trainStreamData: SplitStreamOp = spliter
+    val testStreamData: StreamOperator[_] = spliter.getSideOutput(0)
+
     val standardScaler = new StandardScaler()
       .setSelectedCols("C14", "C15", "C16", "C17", "C18", "C19", "C20", "C21")
     val featureHasher = new FeatureHasher()
@@ -112,28 +122,33 @@ object ftrl {
 
     // fit and save feature pipeline model
     val FEATURE_PIPELINE_MODEL_FILE = "model/feature_pipe_model.csv"
-    val feature_pipelineModel: PipelineModel =
+    val featurePipeline: PipelineModel =
       feature_pipeline.fit(trainBatchData)
-    feature_pipelineModel.save(FEATURE_PIPELINE_MODEL_FILE)
+    featurePipeline.save(FEATURE_PIPELINE_MODEL_FILE)
 
     BatchOperator.execute()
-    //    StreamOperator.execute()
+
     // load pipeline model
-    //        val feature_pipelineModel = PipelineModel.load(FEATURE_PIPELINE_MODEL_FILE)
-    //    val feature_pipelineModel = feature_pipeline.fit(trainBatchData)
-    // train initial batch model\
-    // TODO: something wrong 
+    val featurePipelineModel = PipelineModel.load(FEATURE_PIPELINE_MODEL_FILE)
+
+    // train initial batch model
     val lr = new LogisticRegressionTrainBatchOp()
-    val fData =
-      feature_pipelineModel.transform(trainBatchData)
+
+    val fData: BatchOperator[_ <: BatchOperator[_]] =
+      featurePipelineModel.transform(trainBatchData)
+    // Use as to transform StreamOperator[_] to StreamOperator[_ <: StreamOperator[_]]
+    val sTrainData: StreamOperator[_ <: StreamOperator[_]] =
+      featurePipelineModel.transform(trainStreamData).as(schemaArray)
+    val sTestData =
+      featurePipelineModel.transform(testStreamData).as(schemaArray)
+
     val initModel = lr
       .setVectorCol(vecColName)
       .setLabelCol(labelColName)
       .setWithIntercept(true)
       .setMaxIter(10)
       .linkFrom(fData)
-    val sTrainData = feature_pipelineModel.transform(train_stream_data)
-    val sTestData = feature_pipelineModel.transform(test_stream_data)
+
     // ftrl train
     val model = new FtrlTrainStreamOp(initModel)
       .setVectorCol(vecColName)
@@ -153,8 +168,10 @@ object ftrl {
       .setReservedCols("click")
       .setPredictionDetailCol("details")
       .linkFrom(model, sTestData)
-    println(predResult)
-    //predResult.print(key="predResult", refreshInterval = 30, maxLimit=20)
+
+    predResult.print(30, 20)
+
+    StreamOperator.execute()
 
   }
 
