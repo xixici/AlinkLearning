@@ -2,7 +2,7 @@ package com.xixici.alink.Utils
 
 import com.alibaba.alink.operator.stream.StreamOperator
 import com.alibaba.alink.operator.stream.dataproc.JsonValueStreamOp
-import com.alibaba.alink.operator.stream.source.Kafka011SourceStreamOp
+import com.alibaba.alink.operator.stream.source.KafkaSourceStreamOp
 
 /**
   * Created by yang.lei01 on 2020/2/24.
@@ -36,7 +36,7 @@ object kafkaConsumerTest {
         "$.C20",
         "$.C21"
       )
-    val source: Kafka011SourceStreamOp = new Kafka011SourceStreamOp()
+    val source: KafkaSourceStreamOp = new KafkaSourceStreamOp()
       .setBootstrapServers("127.0.0.1:9092")
       .setTopic("avazu")
       .setStartupMode("GROUP_OFFSETS")

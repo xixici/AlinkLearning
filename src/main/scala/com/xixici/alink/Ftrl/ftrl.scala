@@ -6,7 +6,7 @@ import com.alibaba.alink.operator.batch.source.CsvSourceBatchOp
 import com.alibaba.alink.operator.stream.StreamOperator
 import com.alibaba.alink.operator.stream.dataproc.{JsonValueStreamOp, SplitStreamOp}
 import com.alibaba.alink.operator.stream.onlinelearning.{FtrlPredictStreamOp, FtrlTrainStreamOp}
-import com.alibaba.alink.operator.stream.source.Kafka011SourceStreamOp
+import com.alibaba.alink.operator.stream.source.KafkaSourceStreamOp
 import com.alibaba.alink.pipeline.dataproc.StandardScaler
 import com.alibaba.alink.pipeline.feature.FeatureHasher
 import com.alibaba.alink.pipeline.{Pipeline, PipelineModel}
@@ -86,7 +86,7 @@ object ftrl {
     val numHashFeatures = 30000
 
     // prepare stream train data with kafka
-    val source: Kafka011SourceStreamOp = new Kafka011SourceStreamOp()
+    val source = new KafkaSourceStreamOp()
       .setBootstrapServers("127.0.0.1:9092")
       .setTopic("avazu")
       .setStartupMode("GROUP_OFFSETS")
@@ -205,7 +205,7 @@ object ftrl {
       .add(featureHasher)
 
     // fit and save feature pipeline model
-    val FEATURE_PIPELINE_MODEL_FILE = "model/feature_pipe_model.csv"
+    val FEATURE_PIPELINE_MODEL_FILE: String = "model/feature_pipe_model.csv"
     val featurePipeline: PipelineModel =
       feature_pipeline.fit(trainBatchData)
     featurePipeline.save(FEATURE_PIPELINE_MODEL_FILE)

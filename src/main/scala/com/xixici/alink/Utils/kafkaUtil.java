@@ -1,9 +1,9 @@
 package com.xixici.alink.Utils;
 
 import com.alibaba.alink.operator.stream.StreamOperator;
-import com.alibaba.alink.operator.stream.sink.Kafka011SinkStreamOp;
+import com.alibaba.alink.operator.stream.sink.KafkaSinkStreamOp;
 import com.alibaba.alink.operator.stream.source.CsvSourceStreamOp;
-import com.alibaba.alink.operator.stream.source.Kafka011SourceStreamOp;
+import com.alibaba.alink.operator.stream.source.KafkaSourceStreamOp;
 
 /**
  * Created by yang.lei01 on 2020/2/17.
@@ -18,7 +18,7 @@ public class kafkaUtil {
                 "id string, click string, dt string, C1 string, banner_pos int, site_id string, site_domain string, site_category string, app_id string, app_domain string, app_category string, device_id string, device_ip string, device_model string, device_type string, device_conn_type string, C14 int, C15 int, C16 int, C17 int, C18 int, C19 int, C20 int, C21 int";
         CsvSourceStreamOp data = new CsvSourceStreamOp().setFilePath(URL).setSchemaStr(SCHEMA_STR).setIgnoreFirstLine(true);
 
-        Kafka011SinkStreamOp sink = new Kafka011SinkStreamOp()
+        KafkaSinkStreamOp sink = new KafkaSinkStreamOp()
                 .setBootstrapServers("127.0.0.1:9092")
                 .setDataFormat("json")
                 .setTopic("avazu");
@@ -29,7 +29,7 @@ public class kafkaUtil {
     }
 
     private static void read() throws Exception {
-        Kafka011SourceStreamOp source = new Kafka011SourceStreamOp()
+        KafkaSourceStreamOp source = new KafkaSourceStreamOp()
                 .setBootstrapServers("127.0.0.1:9092")
                 .setTopic("iris")
                 .setStartupMode("EARLIEST")
